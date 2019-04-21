@@ -35,6 +35,9 @@ $fetch.on("click", () => {
     })
     .then(data => {
       $quote.text(data);
+    })
+    .catch(() => {
+      alert("Fetch Error!");
     });
 });
 
@@ -47,7 +50,12 @@ $jquery.on("click", () => {
 
 // ==== Axios
 $axios.on("click", () => {
-  axios.get(url).then(function(response) {
-    $quote.text(response.data);
-  });
+  axios
+    .get(url)
+    .then(function(response) {
+      $quote.text(response.data);
+    })
+    .catch(() => {
+      console.log("Axios Error!");
+    });
 });

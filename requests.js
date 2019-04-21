@@ -13,12 +13,13 @@ let $quote = $("#quote");
 let XHR = new XMLHttpRequest();
 
 $xhr.on("click", () => {
-  XHR.open("GET", "https://api.github.com/zen");
+  XHR.open("GET", url);
   XHR.send();
   XHR.onreadystatechange = function() {
     if (XHR.readyState == 4) {
       if (XHR.status == 200) {
-        $quote.text(XHR.responseText);
+        let data = XHR.responseText;
+        $quote.text(data.substring(2, data.length - 2));
       } else {
         console.log("there was a problem, status code: " + XHR.status);
       }

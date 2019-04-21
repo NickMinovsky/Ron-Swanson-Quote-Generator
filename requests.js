@@ -13,7 +13,7 @@ let $quote = $("#quote");
 let XHR = new XMLHttpRequest();
 
 $xhr.on("click", () => {
-  XHR.open("GET", "https://api.github.com/zen");
+  XHR.open("GET", url);
   XHR.send();
   XHR.onreadystatechange = function() {
     if (XHR.readyState == 4) {
